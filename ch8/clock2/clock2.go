@@ -1,10 +1,4 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 219.
-//!+
-
-// Clock1 is a TCP server that periodically writes the time.
+// Clock2 - TCP сервер, выводящий периодически время параллельно.
 package main
 
 import (
@@ -22,10 +16,10 @@ func main() {
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
-			log.Print(err) // e.g., connection aborted
+			log.Print(err)
 			continue
 		}
-		go handleConn(conn) // handle one connection at a time
+		go handleConn(conn) // параллельная обработка соединений
 	}
 }
 
@@ -34,10 +28,8 @@ func handleConn(c net.Conn) {
 	for {
 		_, err := io.WriteString(c, time.Now().Format("15:04:05\n"))
 		if err != nil {
-			return // e.g., client disconnected
+			return
 		}
 		time.Sleep(1 * time.Second)
 	}
 }
-
-//!-
