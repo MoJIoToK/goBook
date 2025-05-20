@@ -1,3 +1,4 @@
+// Fetch выводит ответ на запрос по заданному URL.
 package main
 
 import (

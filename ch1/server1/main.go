@@ -1,5 +1,4 @@
-//Server1  минимальный echo-сервер
-
+// Server1  минимальный echo-сервер
 package main
 
 import (
@@ -14,6 +13,7 @@ func main() {
 
 }
 
+// handler - обработчик возвращает компонент пути из URL запроса.
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "URL.Path = %q\n", r.URL.Path)
 }

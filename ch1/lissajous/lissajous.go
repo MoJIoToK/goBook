@@ -54,7 +54,7 @@ func main() {
 		return
 	}
 	//!+main
-	lissajous(os.Stdout)
+	//lissajous(os.Stdout)
 }
 
 func lissajous(out io.Writer) {
